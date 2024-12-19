@@ -38,7 +38,8 @@ function Contact() {
 
   return (
     <div className="min-h-screen bg-gray-400 text-gray-800 p-8 md:p-12 lg:p-24">
-      <h1 className="text-3xl md:text-4xl lg:text-3xl font-bold mb-6 text-center text-pink-600">Contact Us</h1>
+      <h2 className="text-3xl md:text-4xl lg:text-3xl font-bold mb-8 text-center pt-16 text-white">
+      Contact Us</h2>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Column */}

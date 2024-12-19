@@ -4,9 +4,9 @@ function About() {
   return (
     <div className="min-h-screen bg-gray-400 text-gray-800">
       <div className="p-8 md:p-12 lg:p-24">
-        <h1 className="text-4xl md:text-3xl lg:text-3xl font-extrabold mb-10 text-center text-pink-600">
+        <h2 className="text-3xl md:text-4xl lg:text-3xl font-bold mb-8 text-center pt-16 text-white">
           About Us
-        </h1>
+        </h2>
 
         {/* Content Section */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 gap-8">
