@@ -72,9 +72,9 @@ function About() {
             Join our exclusive membership program to enjoy regular access to our facilities, or book a one-time session for a unique experience. Membership offers additional benefits and discounts tailored to your needs.
           </p>
           <div className="flex justify-center mt-6">
-            <button className="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition duration-300">
+            {/* <button className="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition duration-300">
               Learn More
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
