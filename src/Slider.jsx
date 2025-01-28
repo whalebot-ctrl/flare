@@ -63,7 +63,7 @@ const Slider = () => {
             (company, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center w-32 h-20"
+                className="flex items-center justify-center w-28 h-20"
               >
                 <img
                   src={company.logo}
