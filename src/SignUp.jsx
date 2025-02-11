@@ -227,6 +227,7 @@ const SignUpForm = () => {
               </div>
 
               {/* Submit Button */}
+              {/* Submit Button */}
               <button
                 type="submit"
                 className={`w-full py-3 rounded-lg ${
@@ -237,6 +238,16 @@ const SignUpForm = () => {
               >
                 {isSubmitted ? 'Submitted Successfully' : 'Sign Up Flare'}
               </button>
+
+              <p className="text-sm text-gray-700 mt-2 text-center">
+                Already have an account?{' '}
+                <a
+                  href="/dashboard"
+                  className="text-red-500 hover:text-red-600 transition-all duration-300"
+                >
+                  Sign In
+                </a>
+              </p>
             </form>
             {successMessage && (
               <div className="text-green-600 font-bold text-lg mb-4">

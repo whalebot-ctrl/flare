@@ -4,6 +4,9 @@ import FlareUI from './FlareUI';
 import About from './About';
 import SignUpForm from './SignUp';
 import ConnectWallet from './ConnectWallet';
+import SignIn from './SignIn';
+import Dashboard from './Dashboard';
+import Stake from './Stake';
 
 const App = () => {
   return (
@@ -38,6 +41,30 @@ const App = () => {
           element={
             <Layout>
               <SignUpForm />
+            </Layout>
+          }
+        />
+        <Route
+          path="/sign-in"
+          element={
+            <Layout>
+              <SignIn />
+            </Layout>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <Layout>
+              <Dashboard />
+            </Layout>
+          }
+        />
+        <Route
+          path="/stake"
+          element={
+            <Layout>
+              <Stake />
             </Layout>
           }
         />
