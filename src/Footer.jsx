@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
-    <footer className="w-full flex flex-col justify-center items-center  mt-8">
+    <footer className="w-full flex flex-col justify-center items-center m-2 mt-8">
       <p className="text-sm sm:text-base text-gray-600">
         Learn more by visiting the{' '}
         <a
-          href="https://docs.xrptoolkit.com/claim-flare-tokens"
+          href="https://flare.network/delegate-and-stake"
           className="text-red-500"
         >
           Flare Documentation

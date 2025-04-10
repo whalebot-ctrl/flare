@@ -75,11 +75,51 @@ const About = () => {
               </Link>
             </div>
           </div>
+
+          {/* Flare Features */}
+          <div className="mt-16">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-black">
+              What Sets Flare Apart
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {/* Card 1: Enshrined Data Protocols */}
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg shadow-lg p-6 transform transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
+                  Enshrined Data Protocols
+                </h3>
+                <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+                  Flare’s protocols are integrated into the blockchain's core,
+                  and inherit the economic security of the entire network.
+                </p>
+              </div>
+
+              {/* Card 2: Ethereum Virtual Machine */}
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg shadow-lg p-6 transform transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
+                  Ethereum Virtual Machine
+                </h3>
+                <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+                  Flare is EVM compatible with out-of-the-box support for all
+                  your favorite tooling.
+                </p>
+              </div>
+
+              {/* Card 3: Flare Stake */}
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg shadow-lg p-6 transform transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
+                  Flare Stake
+                </h3>
+                <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+                  Flare uses a proof-of-stake (PoS) mechanism to ensure a
+                  significant and consistent level of economic security.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
       <Slider />
-
 
       <Footer />
     </div>

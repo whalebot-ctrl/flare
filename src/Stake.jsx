@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import Footer from './Footer';
+import Slider from './Slider';
 
 const Stake = () => {
   // Static rate for XRP to USD (can be updated to live rate later)
@@ -53,7 +55,6 @@ const Stake = () => {
 
   return (
     <div className="min-h-screen ">
-    
       <div className="max-w-6xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left section for staking info */}
@@ -154,6 +155,9 @@ const Stake = () => {
           </div>
         </div>
       </div>
+
+      <Slider />
+      <Footer />
     </div>
   );
 };
