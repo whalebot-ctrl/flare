@@ -20,14 +20,25 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Dummy authentication logic (Replace with actual authentication API call)
-    if (
-      formData.email === 'test@example.com' &&
-      formData.password === 'password123'
-    ) {
-      alert('Sign-in successful!');
-    } else {
-      setErrorMessage('Invalid email or password. Please try again.');
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        window.location.href = 'https://flare-dashboard-ebon.vercel.app/';
+      } else {
+        setErrorMessage(data.message || 'Login failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setErrorMessage('Something went wrong. Please try again.');
     }
   };
 
@@ -134,9 +145,7 @@ const SignIn = () => {
             role="dialog"
             aria-labelledby="forgotPasswordModalLabel"
             aria-hidden="true"
-          >
-        
-          </div>
+          ></div>
         </div>
       </div>
 

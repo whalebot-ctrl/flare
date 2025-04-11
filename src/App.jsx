@@ -7,7 +7,7 @@ import ConnectWallet from './ConnectWallet';
 import SignIn from './SignIn';
 import Dashboard from './Dashboard';
 import Stake from './Stake';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import Verify from './Verify';
 
 const App = () => {
   return (
@@ -69,8 +69,15 @@ const App = () => {
             </Layout>
           }
         />
+        <Route
+          path="/verify"
+          element={
+            <Layout>
+              <Verify />
+            </Layout>
+          }
+        />
       </Routes>
-      <SpeedInsights />
     </Router>
   );
 };

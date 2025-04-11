@@ -9,8 +9,9 @@ const SignUpForm = () => {
     lastName: '',
     email: '',
     phone: '',
-    walletAddress: '',
     country: '',
+    password: '', // New
+    countryCode: '+1',
     agreeTerms: false,
   });
 
@@ -36,45 +37,26 @@ const SignUpForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const botToken = import.meta.env.VITE_BOT_TOKEN;
-    const chatId = import.meta.env.VITE_CHAT_ID;
-
-    console.log('Bot Token:', botToken); // Verify the token is loaded
-    console.log('Chat ID:', chatId); // Verify the chat ID is loaded
-
-    const message = `
-    **Flare Sign-Up Submission**
-    First Name: ${formData.firstName}
-    Last Name: ${formData.lastName}
-    Email: ${formData.email}
-    Phone: ${formData.countryCode || '+1'} ${formData.phone}
-    Wallet Address: ${formData.walletAddress}
-    Country: ${formData.country}
-  `;
-
     try {
-      const response = await fetch(
-        `https://api.telegram.org/bot${botToken}/sendMessage`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: message,
-            parse_mode: 'Markdown',
-          }),
-        }
-      );
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
 
       if (response.ok) {
-        setSuccessMessage(' Welcome to Flare! ');
+        setSuccessMessage('Check your email for the verification link!');
         setIsSubmitted(true);
       } else {
-        alert('Failed to send data to Telegram. Please try again.');
+        alert(data.message || 'Sign-up failed. Please try again.');
       }
     } catch (error) {
-      console.error('Error sending data to Telegram:', error);
-      alert('An error occurred. Please try again later.');
+      console.error('Sign-up error:', error);
+      alert('Something went wrong. Please try again.');
     }
   };
 
@@ -137,6 +119,21 @@ const SignUpForm = () => {
                 />
               </div>
 
+              {/* Password */}
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  className="w-full border px-4 py-2 rounded-lg"
+                />
+              </div>
+
               {/* Phone Number */}
               <div>
                 <label className="block text-sm font-medium mb-2">
@@ -167,22 +164,6 @@ const SignUpForm = () => {
                     required
                   />
                 </div>
-              </div>
-
-              {/* Wallet Address */}
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Wallet Address
-                </label>
-                <input
-                  placeholder="0Xxxxxxxxxxxxxxxxxxxxxxxxxxx"
-                  type="text"
-                  name="walletAddress"
-                  value={formData.walletAddress}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
-                  required
-                />
               </div>
 
               {/* Country of Residence */}
@@ -242,7 +223,7 @@ const SignUpForm = () => {
               <p className="text-sm text-gray-700 mt-2 text-center">
                 Already have an account?{' '}
                 <a
-                  href="/dashboard"
+                  href="/sign-in"
                   className="text-red-500 hover:text-red-600 transition-all duration-300"
                 >
                   Sign In
