@@ -32,7 +32,7 @@ const SignIn = () => {
       const data = await response.json();
 
       if (response.ok) {
-        window.location.href = 'https://flare-dashboard-ebon.vercel.app/';
+        window.location.href = ' http://localhost:3000';
       } else {
         setErrorMessage(data.message || 'Login failed. Please try again.');
       }
